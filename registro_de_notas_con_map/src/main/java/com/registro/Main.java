@@ -33,18 +33,30 @@ public class Main {
                         1- Mostrar los estudiantes.
                         2- Buscar la nota de un estudiante por el nombre.
                         3- Nota mas alta.
-
+                        4- Salir.
                         """);
                 opcion = sc.nextInt();
+                sc.nextLine();
+
                 switch (opcion) {
                     case 1:
-                        System.out.println("\nEstudiantes y sus notas:");
+                        System.out.println("\n|| Lista de estudiantes y sus notas: ||");
                         Funciones.mostrarEstudiantes(estudiantes);
                         break;
                     case 2:
-                        System.out.println("\nEstudiante con la nota mas alta:");
-                        
+                        System.out.print("||Busqueda de estudiante por nombre|| \nIngresa el nombre del estudiante: ");
+                        String nombreBusqueda = sc.nextLine();
+                        Funciones.buscarNotaPorNombre(estudiantes, nombreBusqueda);
+                        break;
+                    case 3:
+                        System.out.println("\n|| Estudiante con la nota más alta: || ");
+                        Funciones.mostrarNotaMasAlta(estudiantes);
+                        break;
+                    case 4:
+                        System.out.println("Saliendo...");
+                        break;
                     default:
+                        System.out.println("Opción no válida.");
                         break;
                 }
             } while (opcion != 4);
